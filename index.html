@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang='ja'>
+<head>
+  <meta charset='UTF-8'>
+  <title>TAMAGO</title>
+  <!-- style sheet block -->
+  <link rel="stylesheet" media="all" type="text/css" href="css/style.css">
+  <!-- style sheet block -->
+  <!-- script block -->
+  <script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+  <script src='js/app.js'></script>
+  <!-- script block end -->
+</head>
+<body>
+  <div id="inputArea">
+    <input id='textInput' type="text" x-webkit-speech onwebkitspeechchange='speechCangeEvent(this.value);'/>
+  </div><!-- /inputArea -->
+  <div id="tamagoArea">
+    <img src="images/waiting.gif" alt="TAMAGO">
+    <span id="tamagoVoice"></span>
+  </div><!-- /tamagoArea -->
+</body>
+</html>

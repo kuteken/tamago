@@ -7,8 +7,16 @@ $ ->
     else
       console.log 'webkitSpeech Enable'
 
-  root.speechCangeEvent = (inputText) ->
-    console.log 'speech'
+  tamagoAction = (inputText) ->
     $('#tamagoVoice').text (inputText + '!')
+    $('#tamagoBody').removeClass('waiting').addClass('animation')
+    setTimeout ->
+      $('#tamagoBody').removeClass('animation').addClass('waiting')
+      $('#tamagoVoice').empty()
+    , 1200
+
+  root.speechCangeEvent = (inputText) ->
+    console.log 'speech -> ' + inputText
+    tamagoAction(inputText)
 
   isWebkitSpeechSupported()

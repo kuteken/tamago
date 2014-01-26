@@ -1,0 +1,38 @@
+.microphoneImg {
+  width:       80px;
+  position:    absolute;
+  margin-top:  70px;
+  margin-left: 120px;
+}
+
+.textboxMicrophone {
+  -webkit-transform: scale(8,8);
+  opacity:     .001;
+  width:       50px;
+  border:      none;
+  margin-left: 0px;
+  margin-top:  100px;
+}
+
+#tamagoBody.waiting {
+  width:  24px;
+  height: 24px;
+  background: url(/images/waiting.gif) no-repeat left top;
+}
+
+#tamagoBody.animation {
+  width:  40px;
+  height: 120px;
+  border: 1px solid transparent;
+  background: url(/images/sprite.png) no-repeat left top;
+  -webkit-animation: playAnimation 1.2s steps(10);
+}
+
+@-webkit-keyframes playAnimation {
+  0%   {
+    background-position: 0px 0;
+  }
+  100% {
+    background-position: -390px 0;
+  }
+}

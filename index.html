@@ -13,10 +13,11 @@
 </head>
 <body>
   <div id="inputArea">
-    <input id='textInput' type="text" x-webkit-speech onwebkitspeechchange='speechCangeEvent(this.value);'/>
+    <img class="microphoneImg" src="images/microphone.jpg" alt="microphone">
+    <input id='textInput' class="textboxMicrophone"  type="text" speech="speech" x-webkit-speech="x-webkit-speech" onwebkitspeechchange='speechCangeEvent(this.value);'>
   </div><!-- /inputArea -->
   <div id="tamagoArea">
-    <img src="images/waiting.gif" alt="TAMAGO">
+    <div id="tamagoBody" class="waiting"></div>
     <span id="tamagoVoice"></span>
   </div><!-- /tamagoArea -->
 </body>

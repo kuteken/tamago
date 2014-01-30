@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>tamago</title>
+
+<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+<script src="http://code.createjs.com/tweenjs-0.5.0.min.js"></script>
+<script src="http://code.createjs.com/movieclip-0.7.0.min.js"></script>
+<script src="tamago.js"></script>
+
+<script>
+var TMG = {};
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	exportRoot = new lib.tamago();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<canvas id="canvas" width="150" height="150" style="background-color:#FFFFFF"></canvas>
+</body>
+</html>

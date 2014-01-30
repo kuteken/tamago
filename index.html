@@ -14,37 +14,13 @@
   <script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
   <script src="http://code.createjs.com/tweenjs-0.5.0.min.js"></script>
   <script src="http://code.createjs.com/movieclip-0.7.0.min.js"></script>
-  <script src="../material/tamago.js"></script>
   <script src="libs/custombox/jquery.custombox.js"></script>
+  <script src="../material/tamago.js"></script>
   <script src='js/app.js'></script>
-  <script>
-    var TMG = {};
-    var canvas, stage, exportRoot;
-    
-    $(function(){
-      init();
-    });
-    
-    function init() {
-        canvas = document.getElementById("tamagoArea");
-        exportRoot = new lib.tamago();
-    
-        stage = new createjs.Stage(canvas);
-        stage.addChild(exportRoot);
-        stage.update();
-    
-        createjs.Ticker.setFPS(lib.properties.fps);
-        createjs.Ticker.addEventListener("tick", stage);
-    }
-  </script>
   <!-- script block end -->
 </head>
 
 <body>
-  <audio id="audio" preload="auto">
-    <source src="audio/hello.mp3" type="audio/mp3">
-  </audio>
-
   <div id="wrap" style="display: none;">
 
     <header id="header"><h1 class="logo">TAMAGO</h1></header>

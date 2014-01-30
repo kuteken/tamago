@@ -1,7 +1,21 @@
+root = exports ? this
+
+root.TMG = {}
+root.canvas
+root.stage
+root.exportRoot
+
 $ ->
-  root = exports ? this
-  
-  audio = $("#audio")[0]
+  root.init = ->
+    canvas = document.getElementById("tamagoArea")
+    exportRoot = new lib.tamago()
+
+    stage = new createjs.Stage(canvas)
+    stage.addChild(exportRoot)
+    stage.update()
+
+    createjs.Ticker.setFPS(lib.properties.fps)
+    createjs.Ticker.addEventListener("tick", stage)
 
   isWebkitSpeechSupported = ->
     if document.createElement('input').webkitSpeech
@@ -11,25 +25,33 @@ $ ->
       console.log('webkitSpeech Enable')
       $('#webkitSpeechStatus').text('対応しています!')
 
-  tamagoAction = (inputText) ->
-    TMG.isStanby   = true
-    TMG.actoinType = 'jump'
-    audio.play()
-
   root.speechCangeEvent = (inputText) ->
     console.log 'speech -> ' + inputText
     tamagoAction(inputText)
 
+  tamagoAction = (inputText) ->
+    console.log inputText
+    switch true
+      when inputText.indexOf('ジャンプ') >= 0 then actionTAMAGO 'jump'
+      when inputText.indexOf('ショック') >= 0 then actionTAMAGO 'shock'
+      else actionTAMAGO 'waiting'
+
+  actionTAMAGO = (type) ->
+    console.log type
+    root.TMG.isStanby = true
+    root.TMG.actionType = type
+
+  root.init()
   isWebkitSpeechSupported()
-    
+
   customboxOption = {
-    url:            '#modal'
-    effect:         'fadein'
-    overlayColor:   '#FFF'
+    url           : '#modal'
+    effect        : 'fadein'
+    overlayColor  : '#FFF'
     overlayOpacity: 1
-    speed:          1000
-    close:          ->
+    speed         : 1000
+    close         : ->
       $('#wrap').fadeIn(1000)
   }
-    
+
   $.fn.custombox customboxOption

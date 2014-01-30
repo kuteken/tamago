@@ -38,10 +38,12 @@
       return tamagoAction(inputText);
     };
     tamagoAction = function(inputText) {
+      var happyWords;
+      happyWords = /楽|笑|喜|嬉|たのしい|うれしい/;
       console.log(inputText);
       switch (true) {
-        case inputText.indexOf('ジャンプ') >= 0:
-          return actionTAMAGO('jump');
+        case inputText.match(happyWords) !== null:
+          return actionTAMAGO('standup');
         case inputText.indexOf('ショック') >= 0:
           return actionTAMAGO('shock');
         default:

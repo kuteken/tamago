@@ -30,9 +30,10 @@ $ ->
     tamagoAction(inputText)
 
   tamagoAction = (inputText) ->
+    happyWords = /楽|笑|喜|嬉|たのしい|うれしい/
     console.log inputText
     switch true
-      when inputText.indexOf('ジャンプ') >= 0 then actionTAMAGO 'jump'
+      when inputText.match(happyWords) != null then actionTAMAGO 'standup'
       when inputText.indexOf('ショック') >= 0 then actionTAMAGO 'shock'
       else actionTAMAGO 'waiting'
 

@@ -11,8 +11,32 @@
   <!-- style block -->
   <!-- script block -->
   <script src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+  <script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+  <script src="http://code.createjs.com/tweenjs-0.5.0.min.js"></script>
+  <script src="http://code.createjs.com/movieclip-0.7.0.min.js"></script>
+  <script src="../material/tamago.js"></script>
   <script src="libs/custombox/jquery.custombox.js"></script>
   <script src='js/app.js'></script>
+  <script>
+    var TMG = {};
+    var canvas, stage, exportRoot;
+    
+    $(function(){
+      init();
+    });
+    
+    function init() {
+        canvas = document.getElementById("tamagoArea");
+        exportRoot = new lib.tamago();
+    
+        stage = new createjs.Stage(canvas);
+        stage.addChild(exportRoot);
+        stage.update();
+    
+        createjs.Ticker.setFPS(lib.properties.fps);
+        createjs.Ticker.addEventListener("tick", stage);
+    }
+  </script>
   <!-- script block end -->
 </head>
 
@@ -29,11 +53,11 @@
       <div id="inputArea">
         <input id='voiceInput' type="text" x-webkit-speech onwebkitspeechchange='speechCangeEvent(this.value);'>
         <div class="circle"></div>
+        
+        <div class="info">Let's talk!</div>
       </div><!-- /inputArea -->
-      <div id="tamagoArea">
-        <div id="tamagoVoice"></div>
-        <div id="tamagoBody" class="waiting"></div>
-      </div><!-- /tamagoArea -->
+      <canvas id="tamagoArea" width="150" height="150">
+      </canvas><!-- /tamagoArea -->
     </div><!-- /contents -->
 
     <footer id="footer"></footer>
@@ -45,8 +69,9 @@
       <h2 class="logo">TAMAGO</h2>
       <p>このコンテンツではマイクを使用します.</p>
       <p>対応ブラウザは最新版のchromeです.</p>
-      <p>(x-webkit-speechを使用するため)</p>
-      <button type="button" class="btn close" onclick="$.fn.custombox('close');">はい</button>
+      <p>あなたのブラウザは</p>
+      <p id="webkitSpeechStatus">対応していません…</p>
+      <button type="button" class="btn close" onclick="$.fn.custombox('close');">OK</button>
     </div>
   </div>
 

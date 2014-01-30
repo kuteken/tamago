@@ -27,7 +27,6 @@ html, body{
   height : 10px;
   padding-top: 0px;
   position   : absolute;
-  background-color: #faca49;
 }
 
 #contents {
@@ -46,7 +45,6 @@ html, body{
   width   : 100%;
   position: absolute;
   bottom  : 0;
-  background-color: #faca49;
 }
 
 .logo {
@@ -67,12 +65,17 @@ html, body{
   height  : 50px;
 }
 
+#inputArea .info {
+  text-align: center;
+  margin: 4px;
+}
+
 #voiceInput {
   z-index    : 2;
   font-size  : 50px;
   width      : 40px;
   height     : 50px;
-  cursor     :pointer;
+  cursor     : pointer;
   border     : none;
   position   : absolute;
   margin-left: 5px;
@@ -84,52 +87,24 @@ html, body{
   z-index   : 1;
   width     : 50px;
   height    : 50px;
-  background: #ededed;
+  background: #efefef;
   -moz-border-radius   : 50px;
   -webkit-border-radius: 50px;
   border-radius        : 50px;
-  -webkit-animation    : waitingCircle 3s 2;
+  -webkit-animation    : waitingCircle 4s 1;
 }
 
 @-webkit-keyframes waitingCircle {
-  0%   { -webkit-transform: scale(1,   1); }
-  60%  { -webkit-transform: scale(1.2, 1.2); }
-  100% { -webkit-transform: scale(1,   1); }
+  0%   { background: #ffe453; -webkit-transform: scale(100,   100); }
+  60% { -webkit-transform: scale(1,   1); }
+  70% { background: #ffe453;  }
+  100% { background: #efefef;  }
 }
 
 /* tamago */
 
 #tamagoArea {
-  margin  : 150px 100px 50px 100px;
-  position: relative;
-}
-
-#tamagoVoice {
-  position   : absolute;
-  font-family: 'fgflop', 'Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-}
-
-#tamagoBody {
-  margin: 0 auto;
-}
-
-#tamagoBody.waiting {
-  width :  100px;
-  height: 100px;
-  background: url(/images/tamago.gif) no-repeat center center ;
-}
-
-#tamagoBody.animation {
-  width : 40px;
-  height: 120px;
-  border: 1px solid transparent;
-  background: url(/images/sprite.png) no-repeat center center ;
-  -webkit-animation: playAnimation 1.2s steps(10);
-}
-
-@-webkit-keyframes playAnimation {
-  0%   { background-position: 0px    0; }
-  100% { background-position: -390px 0; }
+  margin  : 50px;
 }
 
 /* modal */

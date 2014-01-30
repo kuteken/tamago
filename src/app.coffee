@@ -5,27 +5,22 @@ $ ->
 
   isWebkitSpeechSupported = ->
     if document.createElement('input').webkitSpeech
-      console.log 'webkitSpeech Disable'
+      console.log('webkitSpeech Disable')
+      $('#webkitSpeechStatus').text('対応していません↓↓')
     else
-      console.log 'webkitSpeech Enable'
+      console.log('webkitSpeech Enable')
+      $('#webkitSpeechStatus').text('対応しています!')
 
   tamagoAction = (inputText) ->
-    $('#tamagoBody').removeClass('waiting').addClass('animation')
-    $('#tamagoVoice').text('Hello!')
+    TMG.isStanby   = true
+    TMG.actoinType = 'jump'
     audio.play()
-    setTimeout ->
-      $('#tamagoBody').removeClass('animation').addClass('waiting')
-      $('#tamagoVoice').empty()
-    , 1200
 
   root.speechCangeEvent = (inputText) ->
     console.log 'speech -> ' + inputText
     tamagoAction(inputText)
 
   isWebkitSpeechSupported()
-  
-  $('#voiceInput').click ->
-    $('.circle').css('animation-play-state', 'paused')
     
   customboxOption = {
     url:            '#modal'

@@ -6,28 +6,23 @@
     audio = $("#audio")[0];
     isWebkitSpeechSupported = function() {
       if (document.createElement('input').webkitSpeech) {
-        return console.log('webkitSpeech Disable');
+        console.log('webkitSpeech Disable');
+        return $('#webkitSpeechStatus').text('対応していません↓↓');
       } else {
-        return console.log('webkitSpeech Enable');
+        console.log('webkitSpeech Enable');
+        return $('#webkitSpeechStatus').text('対応しています!');
       }
     };
     tamagoAction = function(inputText) {
-      $('#tamagoBody').removeClass('waiting').addClass('animation');
-      $('#tamagoVoice').text('Hello!');
-      audio.play();
-      return setTimeout(function() {
-        $('#tamagoBody').removeClass('animation').addClass('waiting');
-        return $('#tamagoVoice').empty();
-      }, 1200);
+      TMG.isStanby = true;
+      TMG.actoinType = 'jump';
+      return audio.play();
     };
     root.speechCangeEvent = function(inputText) {
       console.log('speech -> ' + inputText);
       return tamagoAction(inputText);
     };
     isWebkitSpeechSupported();
-    $('#voiceInput').click(function() {
-      return $('.circle').css('animation-play-state', 'paused');
-    });
     customboxOption = {
       url: '#modal',
       effect: 'fadein',

@@ -44,10 +44,8 @@
       switch (true) {
         case inputText.match(happyWords) !== null:
           return actionTAMAGO('standup');
-        case inputText.indexOf('ショック') >= 0:
-          return actionTAMAGO('shock');
         default:
-          return actionTAMAGO('waiting');
+          return actionTAMAGO('shock');
       }
     };
     actionTAMAGO = function(type) {

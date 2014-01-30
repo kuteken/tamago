@@ -34,8 +34,7 @@ $ ->
     console.log inputText
     switch true
       when inputText.match(happyWords) != null then actionTAMAGO 'standup'
-      when inputText.indexOf('ショック') >= 0 then actionTAMAGO 'shock'
-      else actionTAMAGO 'waiting'
+      else actionTAMAGO 'shock'
 
   actionTAMAGO = (type) ->
     console.log type

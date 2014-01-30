@@ -1,38 +1,181 @@
-.microphoneImg {
-  width:       80px;
-  position:    absolute;
-  margin-top:  70px;
-  margin-left: 120px;
+/* base */
+
+@font-face {
+  font-family: 'fgflop';
+  src: url('../webfont/fgflop.ttf') format('truetype');
 }
 
-.textboxMicrophone {
-  -webkit-transform: scale(8,8);
-  opacity:     .001;
-  width:       50px;
-  border:      none;
-  margin-left: 0px;
-  margin-top:  100px;
+html, body{
+  height : 100%;
+  padding: 0;
+  margin : 0;
+  font-family: 'fgflop', 'Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+}
+
+#wrap {
+  position: relative;
+  width   : 100%;
+  height  : auto !important; /* for IE6 */
+  height  : 100%; /* for IE6 */
+  min-height: 100%;
+}
+
+#header {
+  z-index: 5;
+  top    : 0;
+  width  : 100%;
+  height : 10px;
+  padding-top: 0px;
+  position   : absolute;
+  background-color: #faca49;
+}
+
+#contents {
+  position: absolute;
+  top     : 50%;
+  left    : 50%;
+  width   : 300px;
+  height  : 300px;
+  padding : 10px 0 10px 0;
+  margin  : -150px 0 0 -150px;
+}
+
+#footer{
+  z-index : 5;
+  height  : 10px;
+  width   : 100%;
+  position: absolute;
+  bottom  : 0;
+  background-color: #faca49;
+}
+
+.logo {
+  text-align : right;
+  font-size  : 14px;
+  font-family: 'Coming Soon', Arial, serif;
+  font-weight: 400;
+  padding    : 0;
+  margin     : 10px;
+}
+
+/* ui */
+
+#inputArea {
+  z-index : 2;
+  position: relative;
+  width   : 50px;
+  height  : 50px;
+}
+
+#voiceInput {
+  z-index    : 2;
+  font-size  : 50px;
+  width      : 40px;
+  height     : 50px;
+  cursor     :pointer;
+  border     : none;
+  position   : absolute;
+  margin-left: 5px;
+  outline    : none;
+  background : transparent;
+}
+
+.circle {
+  z-index   : 1;
+  width     : 50px;
+  height    : 50px;
+  background: #ededed;
+  -moz-border-radius   : 50px;
+  -webkit-border-radius: 50px;
+  border-radius        : 50px;
+  -webkit-animation    : waitingCircle 3s 2;
+}
+
+@-webkit-keyframes waitingCircle {
+  0%   { -webkit-transform: scale(1,   1); }
+  60%  { -webkit-transform: scale(1.2, 1.2); }
+  100% { -webkit-transform: scale(1,   1); }
+}
+
+/* tamago */
+
+#tamagoArea {
+  margin  : 150px 100px 50px 100px;
+  position: relative;
+}
+
+#tamagoVoice {
+  position   : absolute;
+  font-family: 'fgflop', 'Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+}
+
+#tamagoBody {
+  margin: 0 auto;
 }
 
 #tamagoBody.waiting {
-  width:  24px;
-  height: 24px;
-  background: url(/images/waiting.gif) no-repeat left top;
+  width :  100px;
+  height: 100px;
+  background: url(/images/tamago.gif) no-repeat center center ;
 }
 
 #tamagoBody.animation {
-  width:  40px;
+  width : 40px;
   height: 120px;
   border: 1px solid transparent;
-  background: url(/images/sprite.png) no-repeat left top;
+  background: url(/images/sprite.png) no-repeat center center ;
   -webkit-animation: playAnimation 1.2s steps(10);
 }
 
 @-webkit-keyframes playAnimation {
-  0%   {
-    background-position: 0px 0;
-  }
-  100% {
-    background-position: -390px 0;
-  }
+  0%   { background-position: 0px    0; }
+  100% { background-position: -390px 0; }
+}
+
+/* modal */
+.modal {
+  width           : 400px;
+  box-shadow      : 0 5px 15px rgba(0, 0, 0, 0.5);
+  background-color: #FFF;
+  border          : 1px solid rgba(0, 0, 0, 0.2);
+  border-radius   : 30px;
+  outline         : 0 none;
+}
+
+.modal .wrap {
+  padding: 20px;
+}
+
+.modal p {
+  text-align: center;
+}
+
+.btn {
+  border     : none;
+  background : #ffe453;
+  color      : #fff;
+  cursor     : pointer;
+  padding    : 10px 20px;
+  display    : inline-block;
+  margin     : 15px 140px;
+  text-transform    : uppercase;
+  letter-spacing    : 1px;
+  font-weight: 700;
+  outline    : none;
+  position   : relative;
+  box-shadow : 0 4px #faca49;
+  -webkit-transition: none;
+  -moz-transition   : none;
+  transition        : none;
+  border-radius     : 0 0 5px 5px;
+}
+
+.btn:hover {
+  box-shadow: 0 2px #faca49;
+  top       : 2px;
+}
+
+.btn:active {
+  box-shadow: 0 0 #faca49;
+  top       : 6px;
 }

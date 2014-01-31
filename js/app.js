@@ -37,9 +37,8 @@
     };
     tamagoAction = function(inputText) {
       var happyWords, loveWords;
-      happyWords = /楽|笑|喜|嬉|たのしい|うれしい/;
-      loveWords = /好|愛|すき|スキ|ラブ|Love/;
-      console.log(inputText);
+      loveWords = /好|愛|すき|スキ|ラブ|love/;
+      happyWords = /楽|笑|喜|嬉|たのしい|うれしい|おはよう|こんにちは|こんばんは/;
       switch (true) {
         case inputText.match(loveWords) !== null:
           return actionTAMAGO('love');
@@ -54,7 +53,7 @@
       }
     };
     actionTAMAGO = function(type) {
-      console.log(type);
+      console.log('actionType-> ' + type);
       root.TMG.isStanby = true;
       return root.TMG.actionType = type;
     };

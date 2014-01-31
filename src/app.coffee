@@ -28,11 +28,10 @@ $ ->
     tamagoAction(inputText)
 
   tamagoAction = (inputText) ->
-    happyWords = /楽|笑|喜|嬉|たのしい|うれしい/
-    loveWords  = /好|愛|すき|スキ|ラブ|Love/
-    console.log inputText
+    loveWords  = /好|愛|すき|スキ|ラブ|love/
+    happyWords = /楽|笑|喜|嬉|たのしい|うれしい|おはよう|こんにちは|こんばんは/
     switch true
-      when inputText.match(loveWords) != null then actionTAMAGO 'love'
+      when inputText.match(loveWords)  != null then actionTAMAGO 'love'
       when inputText.match(happyWords) != null then actionTAMAGO 'standup'
       else
         if Math.floor(Math.random() * 2)
@@ -41,7 +40,7 @@ $ ->
           actionTAMAGO 'stay'
 
   actionTAMAGO = (type) ->
-    console.log type
+    console.log 'actionType-> ' + type
     root.TMG.isStanby = true
     root.TMG.actionType = type
 

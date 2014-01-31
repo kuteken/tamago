@@ -18,7 +18,7 @@ $ ->
     createjs.Ticker.addEventListener("tick", stage)
 
   isWebkitSpeechSupported = ->
-    if document.createElement('input').webkitSpeech
+    if document.createElement('input').webkitSpeech == undefined
       console.log('webkitSpeech Disable')
       $('#webkitSpeechStatus').text('対応していません↓↓')
     else

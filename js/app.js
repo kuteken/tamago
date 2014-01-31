@@ -25,7 +25,7 @@
       return createjs.Ticker.addEventListener("tick", stage);
     };
     isWebkitSpeechSupported = function() {
-      if (document.createElement('input').webkitSpeech) {
+      if (document.createElement('input').webkitSpeech === void 0) {
         console.log('webkitSpeech Disable');
         return $('#webkitSpeechStatus').text('対応していません↓↓');
       } else {

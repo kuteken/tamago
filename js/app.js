@@ -26,10 +26,8 @@
     };
     isWebkitSpeechSupported = function() {
       if (document.createElement('input').webkitSpeech) {
-        console.log('webkitSpeech Disable');
         return $('#webkitSpeechStatus').text('対応していません↓↓');
       } else {
-        console.log('webkitSpeech Enable');
         return $('#webkitSpeechStatus').text('対応しています!');
       }
     };
@@ -38,14 +36,21 @@
       return tamagoAction(inputText);
     };
     tamagoAction = function(inputText) {
-      var happyWords;
+      var happyWords, loveWords;
       happyWords = /楽|笑|喜|嬉|たのしい|うれしい/;
+      loveWords = /好|愛|すき|スキ|ラブ|Love/;
       console.log(inputText);
       switch (true) {
+        case inputText.match(loveWords) !== null:
+          return actionTAMAGO('love');
         case inputText.match(happyWords) !== null:
           return actionTAMAGO('standup');
         default:
-          return actionTAMAGO('shock');
+          if (Math.floor(Math.random() * 2)) {
+            return actionTAMAGO('shock');
+          } else {
+            return actionTAMAGO('stay');
+          }
       }
     };
     actionTAMAGO = function(type) {
